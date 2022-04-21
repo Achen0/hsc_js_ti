@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            margin: 0 auto;
+            background-color: wheat;
+        }
+
+        input {
+            margin: 4px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <input type="text" name="miss" value="北京市">
+        <br>
+        <input type="text" name="miss" value="朝阳区">
+        <br>
+        <input id="transmit" type="button" value="传参">
+    </div>
+</body>
+
+</html>
+<script>
+    // input框里的name也可以用来当作获取的渠道  (需要用getElementsByName 来获取)
+
+    var transmit_input = document.getElementsByName('miss')
+    var anniu = document.querySelector('#transmit')
+
+    anniu.addEventListener('click', function () {
+        transmit_input.forEach(item => {
+            alert(item.value)
+        })
+    })
+</script>

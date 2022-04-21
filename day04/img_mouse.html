@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鼠标移入显示不透明</title>
+    <style>
+        .box {
+            width: 500px;
+            height: 220px;
+            border: 1px solid red;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        img {
+            border: 1px solid #959595;
+            width: 100px;
+            height: 100px;
+            flex: 0 0 24%;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <img src="../imgs/1.jpg" alt="">
+        <img src="../imgs/1.jpg" alt="">
+        <img src="../imgs/1.jpg" alt="">
+        <img src="../imgs/1.jpg" alt="">
+        <img src="../imgs/1.jpg" alt="">
+        <img src="../imgs/1.jpg" alt="">
+        <img src="../imgs/1.jpg" alt="">
+        <img src="../imgs/1.jpg" alt="">
+    </div>
+</body>
+
+</html>
+<script>
+    var imgs = document.querySelectorAll('.box>img')
+
+    imgs.forEach(item => {
+        item.addEventListener('mouseenter', function (e) {
+            e.target.style.opacity = 1
+            e.target.style.cursor = 'pointer'
+        })
+    })
+    imgs.forEach(item => {
+        item.addEventListener('mouseout', function (e) {
+            e.target.style.opacity = 0.3
+        })
+    })
+</script>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖拽</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .box {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .tuozhuai {
+            display: none;
+            width: 600px;
+            height: 300px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            margin: auto;
+            background: red;
+        }
+
+        header {
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            background: white;
+            overflow: hidden;
+        }
+
+        h3 {
+            margin-right: 20px;
+            float: right;
+            cursor: pointer;
+        }
+
+        button {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: 0 auto;
+            width: 60px;
+            height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="tc()">弹出层</button>
+    <div class="box"></div>
+    <div class="tuozhuai">
+        <header>
+            <h3 onclick="sc()">X</h3>
+        </header>
+    </div>
+</body>
+
+</html>
+<script>
+
+    var box = document.querySelector('.box')
+    var tuozhuai = document.querySelector('.tuozhuai')
+
+    function tc() {
+        box.style.display = 'block'
+        tuozhuai.style.display = 'block'
+    }
+
+    function sc() {
+        box.style.display = 'none'
+        tuozhuai.style.display = 'none'
+    }
+
+    // 拖拽
+
+    tuozhuai.addEventListener('mousedown', function (event) {
+        // event 里面有我的鼠标位置clientX  clientY
+        console.log(event);
+        let x1 = event.clientX
+        let y1 = event.clientY
+        let left1 = tuozhuai.offsetLeft
+        let top1 = tuozhuai.offsetTop
+        console.log(left1, top1);
+        // 移动事件
+        document.addEventListener('mousemove', move)
+        function move(event) {
+            let x2 = event.clientX
+            let y2 = event.clientY
+            tuozhuai.style.left = x2 - x1 + left1 + 'px'
+            tuozhuai.style.top = y2 - y1 + top1 + 'px'
+        }
+        document.addEventListener('mouseup',function(){
+            document.removeEventListener('mousemove', move)
+        })
+    })
+</script>

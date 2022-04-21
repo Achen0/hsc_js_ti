@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数传参</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .box {
+            margin: 0 auto;
+            width: 500px;
+            text-align: center;
+        }
+
+        label {
+            display: inline-block;
+            width: 80px;
+        }
+
+        input {
+            margin: 10px 0;
+        }
+
+        .box1 {
+            margin: 0 auto;
+            width: 240px;
+            height: 240px;
+            background: #000000;
+            color: white;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <label for="">属性名：</label><input class="input1" type="text">
+        <br>
+        <label for="">属性值：</label><input class="input2" type="text">
+        <br>
+        <label for=""></label>
+        <input type="button" onclick="queren()" value="确定">
+        <input type="button" onclick="chongzhi()" value="重置">
+    </div>
+
+    <div class="box1">
+        在上方输入框输入"属性名"及"属性值"
+        点击确定按钮查看效果。
+    </div>
+</body>
+
+</html>
+<script>
+    var input1 = document.querySelector('.input1')
+    var input2 = document.querySelector('.input2')
+    var box1 = document.querySelector('.box1')
+
+    function queren() {
+        console.log(input1.value);
+        console.log(input2.value);
+        // 对象可以通过.添加，也可以通过[]添加
+        box1.style[input1.value] = input2.value
+    }
+    function chongzhi() {
+        // 对象可以通过.添加，也可以通过[]添加
+        box1.style.cssText = 'margin: 0 auto,width: 240px,height: 240px,background: #000000,color: white,padding: 20px '
+    }
+
+</script>

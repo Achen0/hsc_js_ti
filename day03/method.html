@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>输入法选择</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .box {
+            width: 100px;
+            margin: 0 auto;
+            /* background: wheat; */
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+        }
+
+        ul {
+            display: none;
+            margin-top: 10px;
+            list-style: none;
+        }
+
+        li {
+            height: 30px;
+            line-height: 30px;
+            border: 1px solid #ececec;
+            cursor: pointer;
+        }
+
+        .aa {
+            background: wheat;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <input onclick="show()" class="srf" type="button" value="输入法">
+        <ul>
+            <li>简笔</li>
+            <li>拼音</li>
+            <li onclick="gb()">关闭</li>
+        </ul>
+    </div>
+</body>
+
+</html>
+<script>
+    var uls = document.querySelector('ul')
+    var lis = document.querySelectorAll('li')
+    var flag = 1
+    function show() {
+        if (flag == 1) {
+            uls.style.display = 'block'
+            flag = 2
+        } else {
+            uls.style.display = 'none'
+            flag = 1
+        }
+    }
+
+    lis.forEach(item => {
+        item.addEventListener('mouseenter', function () {
+            lis.forEach(ite => {   // 在移入的时候所有颜色变白
+                ite.style.background = '#ffffff'
+            })
+            this.style.background = 'red'  // 只有this当前指向的元素变红
+        })
+        item.addEventListener('mouseout', function () {
+            lis.forEach(ite => {   // 在移入的时候所有颜色变白
+                ite.style.background = '#ffffff'
+            })
+        })
+    })
+
+    function gb() {
+        uls.style.display = 'none'
+        flag = 1
+    }
+
+
+
+
+
+
+</script>

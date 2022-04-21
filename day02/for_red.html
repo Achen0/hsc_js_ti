@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 600px;
+            height: 300px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        input {
+            margin: 20px 0;
+        }
+
+        .box div {
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            background: #000000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <input type="button" id="btn" value="点击按钮改变三个div盒子的颜色">
+        <br>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</body>
+
+</html>
+<script>
+    var div0 = document.getElementsByTagName('div')
+    // console.log(div0.index);
+    var btn = document.querySelector('#btn')
+    var flag = 1
+    btn.onclick = function () {
+        if (flag == 1) {
+            for (var i = 1; i < div0.length; i++) {
+                div0[i].style.cssText = "background:red;"
+            }
+            console.log(btn.value);
+            btn.value = "点击按钮回复原始颜色"
+            flag = 2
+        } else {
+            for (var i = 1; i < div0.length; i++) {
+                div0[i].style.cssText = "background:#000000;"
+            }
+            console.log(btn.value);
+            btn.value = "点击按钮改变三个div盒子的颜色"
+            flag = 1
+        }
+    }
+
+
+
+</script>

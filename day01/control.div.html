@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>控制div</title>
+    <style>
+        .divs {
+            width: 300px;
+            margin: 20px auto;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #box1 {
+            margin: 0 auto;
+            background-color: black;
+            width: 100px;
+            height: 100px;
+        }
+
+        .div_color {
+            width: 300px;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            ;
+            display: none;
+            /* display: flex;
+            justify-content: space-between; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="divs">
+        <button onclick="c_width()">变宽</button>
+        <button onclick="c_height()">变高</button>
+        <button id="bs_button">变色</button>
+        <button onclick="c_hide()">隐藏</button>
+        <button onclick="c_show()">显示</button>
+        <button onclick="c_reset()">重置</button>
+    </div>
+    <div class="div_color">
+        <button onclick="green()">绿色</button>
+        <button onclick="red()">红色</button>
+        <button onclick="yellow()">黄色</button>
+        <button onclick="pink()">粉色</button>
+        <button onclick="blue()">蓝色</button>
+    </div>
+    <div id="box1"></div>
+</body>
+
+</html>
+
+<script>
+    var click_box = document.querySelector('#box1')
+    var c_colorbox = document.querySelector('.div_color')
+    var bs_button = document.querySelector('#bs_button')
+    function c_width() {
+        click_box.style.width = "300px"
+    }
+    function c_height() {
+        click_box.style.height = "300px"
+    }
+
+    // var flag = 1   // 利用开关方法，定义一个值   在固定值的情况下，执行当前值的操作
+    // bs_button.onclick = function () {   // 直接将获取来的节点 定义点击事件
+    //     console.log(11);
+    //     if (flag == 1) {
+    //         c_colorbox.style.cssText = "display:flex;justify-content: space-between;"
+    //         bs_button.innerHTML = "收起"
+    //         flag = 2
+    //     } else {
+    //         c_colorbox.style.display = "none"
+    //         bs_button.innerHTML = "变色"
+    //         flag = 1
+    //     }
+    // }
+
+    var flag = 1
+    bs_button.addEventListener('click', function () {  //使用add的另一种方法
+        console.log(11);
+        if (flag == 1) {
+            c_colorbox.style.cssText = "display:flex;justify-content: space-between;"
+            bs_button.innerHTML = "收起"
+            flag = 2
+        } else {
+            c_colorbox.style.display = "none"
+            bs_button.innerHTML = "变色"
+            flag = 1
+        }
+    })
+
+
+    function c_hide() {
+        click_box.style.visibility = "hidden"   // 控制显示隐藏的单词  visibility 
+    }
+    function c_show() {
+        click_box.style.visibility = "visible"  // 隐藏单词  hidden   显示单词  visible
+    }
+    function c_reset() {
+        click_box.style.cssText = "width:100px;height:100px;"  // 使用cssText 这样就可以尽量避免页面reflow，提高页面性能  (cssText   T 必须是大写)
+    }
+
+    // 设置颜色
+    function green() {
+        click_box.style.background = "green"
+    }
+    function red() {
+        click_box.style.background = "red"
+    }
+    function yellow() {
+        click_box.style.background = "yellow"
+    }
+    function pink() {
+        click_box.style.background = "pink"
+    }
+    function blue() {
+        click_box.style.background = "blue"
+    }
+</script>

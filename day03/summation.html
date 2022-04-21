@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>求和公式</title>
+    <style>
+        .box {
+            width: 500px;
+            margin: 0 auto;
+            /* background-color: wheat; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <input type="text" style="margin-right: 20px;"> <span>输入数字求和，数字之间用半角","号分隔</span>
+        <br>
+        <br>
+        <button>求和</button> <span class="jieguo">0</span>
+    </div>
+</body>
+
+</html>
+<script>
+    var inputText = document.querySelector('input')
+    var buttonck = document.querySelector('button')
+    var jieguos = document.querySelector('.jieguo')
+
+    buttonck.addEventListener('click', function () {
+        let arr = inputText.value.split(",")
+        // console.log(arr);
+        var jieguo = 0
+        arr.forEach(item => {
+            jieguo += Number(item)
+        })
+        jieguos.innerHTML = '上方数字相加:' + jieguo
+    })
+
+    inputText.addEventListener('input', function () {
+        inputText.value = this.value.replace(/[^(\d)|(,)]/, "")
+    })
+</script>

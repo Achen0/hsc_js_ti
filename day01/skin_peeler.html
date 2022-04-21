@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>换肤原生</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .box {
+            width: 600px;
+            margin: 20px auto;
+            /* background-color: #ededed; */
+        }
+
+        .btn {
+            width: 30px;
+            height: 30px;
+            border: none;
+        }
+
+        .red {
+            background: red;
+        }
+
+        .green {
+            background: green;
+        }
+
+        .black {
+            background: black;
+        }
+
+        .none {
+            width: 100px;
+            border: 1px solid #ededed;
+        }
+
+        /* ul位置 */
+        .box1 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            list-style: none;
+            height: 40px;
+            margin: 10px 0;
+            border: 2px solid #494949;
+        }
+
+        li {
+            width: 20%;
+            text-align: center;
+            border: 2px solid #494949;
+            height: 100%;
+            line-height: 32px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <!-- 按钮位置 -->
+        <input type="button" class="btn red"></input>
+        <input type="button" class="btn green"></input>
+        <input type="button" class="btn black"></input>
+        <input type="button" value="取消样式" class="btn none"></input>
+        <br>
+        <div class="box1">
+            <li class="lis">新闻</li>
+            <li class="lis">娱乐</li>
+            <li class="lis">体育</li>
+            <li class="lis">电影</li>
+            <li class="lis">音乐</li>
+            <li class="lis">旅游</li>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    var red_button = document.querySelector('.red')
+    var green_button = document.querySelector('.green')
+    var black_button = document.querySelector('.black')
+    var none_button = document.querySelector('.none')
+    var box1 = document.querySelector('.box1')
+    var lis = document.querySelectorAll('.lis')
+
+    // 红色
+    red_button.addEventListener('click', function () {
+        // console.log(11);
+        red_button.style.cssText = "border: 10px solid red;background:#ffffff;"
+        document.body.style.cssText = "background:red;"
+        box1.style.border = "2px solid #ffffff"
+        lis.forEach(item => {
+            item.style.border = "2px solid #ffffff"
+            item.style.color = "#ffffff"
+        })
+        green_button.style.background = "green"
+        black_button.style.background = "black"
+    })
+    // 绿色
+    green_button.addEventListener('click', function () {
+        // console.log(11);
+        green_button.style.cssText = "border: 10px solid green;background:#ffffff;"
+        document.body.style.cssText = "background:green;"
+        box1.style.border = "2px solid #ffffff"
+        lis.forEach(item => {
+            item.style.border = "2px solid #ffffff"
+            item.style.color = "#ffffff"
+        })
+
+        red_button.style.background = "red"
+        black_button.style.background = "black"
+    })
+    // 黑色
+    black_button.addEventListener('click', function () {
+        // console.log(11);
+        black_button.style.cssText = "border: 10px solid black;background:#ffffff;"
+        document.body.style.cssText = "background:black;"
+        box1.style.border = "2px solid #ffffff"
+        lis.forEach(item => {
+            item.style.border = "2px solid #ffffff"
+            item.style.color = "#ffffff"
+        })
+        red_button.style.background = "red"
+        green_button.style.background = "green"
+    })
+    // 取消样式
+    none_button.addEventListener('click', function () {
+        // console.log(11);
+        black_button.style.cssText = "border: 10px solid black;background:#ffffff;"
+        document.body.style.cssText = "background:none;"
+        box1.style.border = "2px solid #000000"
+        lis.forEach(item => {
+            item.style.border = "2px solid #000000"
+            item.style.color = "#000000"
+        })
+        red_button.style.background = "red"
+        green_button.style.background = "green"
+        black_button.style.background = "black"
+    })
+
+
+    // 整体思路:
+    // 1、获取各个按钮的节点
+    // 2、给三个按钮设置点击事件 （通过add方法）
+    // 3、点击时将边框变大，按钮背景调整成白色，document.body 的样式调整为对应颜色
+    // 4、再点击其中一个的时候将另外两个的背景颜色调整回来
+
+</script>
